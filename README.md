@@ -7,13 +7,13 @@ A full-stack authentication system built with **Node.js, Express, TypeScript, an
 ## 📸 Screenshots
 
 ### Login & Signup
-![Login and Signup](./screenshotsupload/loginpage.png)
+![Login and Signup](./screenshots_upload/loginpage.png)
 
 ### User Dashboard
 ![User Dashboard](./screenshots_upload/dashboard1.png)
 
 ### Dashboard Overview
-![Dashboard Overview](./screenshotsupload/dashboard2.png)
+![Dashboard Overview](./screenshots_upload/dashboard2.png)
 
 ## ✨ Features
 
