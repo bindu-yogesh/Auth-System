@@ -2,6 +2,18 @@
 
 A full-stack authentication system built with **Node.js, Express, TypeScript, and PostgreSQL**, featuring secure password hashing, server-side sessions, and a responsive user interface.
 
+
+## 📸 Screenshots
+
+### Login & Signup
+![Login and Signup](screenshots/loginpage.png)
+
+### User Dashboard
+![User Dashboard](screenshots/dashboard1.png)
+
+### User DashBoard2
+![User Dashboard](screenshots/dashboard2.png)
+
 ## ✨ Features
 
 - User registration and login
