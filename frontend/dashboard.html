@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b14" />
+  <title>Dashboard — UptoSkills</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/dashboard.css" />
+  <script src="/dashboard.js" defer></script>
+</head>
+<body class="dashboard-body">
+  <header class="dashboard-header">
+    <a class="brand" href="/dashboard.html">
+      <span class="brand-mark">U</span>
+      <span>UptoSkills<span class="brand-dot">.</span></span>
+    </a>
+
+    <button class="logout-button" id="logout-button" type="button">
+      Log out <span aria-hidden="true">↗</span>
+    </button>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="dashboard-eyebrow">
+      <span class="status-dot"></span>
+      ACCOUNT OVERVIEW
+    </div>
+
+    <section class="welcome-section">
+      <p class="welcome-label">YOUR SPACE</p>
+      <h1>Welcome back, <span id="user-name">there</span><span class="brand-dot">.</span></h1>
+      <p class="welcome-description">
+        You're signed in. Keep learning, keep growing, and make your next move count.
+      </p>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="dashboard-card profile-card">
+        <div class="card-top">
+          <span class="card-icon">◉</span>
+          <span class="account-badge">Account active</span>
+        </div>
+
+        <h2>Your profile</h2>
+        <p class="card-description">Your account information in one place.</p>
+
+        <div class="profile-detail">
+          <span>FULL NAME</span>
+          <strong id="profile-name">Loading...</strong>
+        </div>
+
+        <div class="profile-detail">
+          <span>EMAIL ADDRESS</span>
+          <strong id="profile-email">Loading...</strong>
+        </div>
+
+        <div class="profile-detail">
+          <span>MEMBER SINCE</span>
+          <strong id="profile-created">Loading...</strong>
+        </div>
+      </article>
+
+      <article class="dashboard-card security-card">
+        <span class="card-icon">✦</span>
+        <p class="welcome-label">YOUR SECURITY</p>
+        <h2>You're in control.</h2>
+        <p class="card-description">
+          Your account is protected by server-side authentication and secure password hashing.
+        </p>
+
+        <div class="security-status">
+          <span class="status-dot"></span>
+          Authenticated session
+        </div>
+      </article>
+    </section>
+
+    <p class="dashboard-note" id="dashboard-status" role="status" aria-live="polite"></p>
+  </main>
+
+  <footer class="dashboard-footer">
+    <span>© 2026 UptoSkills</span>
+    <span>LEARN SOMETHING. BECOME SOMETHING.</span>
+  </footer>
+</body>
+</html>

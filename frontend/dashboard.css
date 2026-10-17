@@ -1,0 +1,226 @@
+
+.dashboard-body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 75% 0%, #39206a33, transparent 42%),
+    var(--bg);
+}
+
+.dashboard-header {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(22px, 7vw, 100px);
+  border-bottom: 1px solid #ffffff0d;
+  background: #0b0b14bb;
+}
+
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 16px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #171727;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.logout-button:hover {
+  border-color: #a78bfa66;
+  background: #201b32;
+}
+
+.dashboard-main {
+  width: min(100% - 44px, 1040px);
+  margin: 0 auto;
+  padding: 65px 0 75px;
+}
+
+.dashboard-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.welcome-section {
+  margin: 30px 0 42px;
+}
+
+.welcome-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.welcome-section h1 {
+  margin: 12px 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(31px, 5vw, 49px);
+  letter-spacing: -2px;
+  overflow-wrap: anywhere;
+}
+
+.welcome-section h1 span:not(.brand-dot) {
+  color: var(--accent);
+}
+
+.welcome-description {
+  max-width: 550px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+}
+
+.dashboard-card {
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: linear-gradient(145deg, #171727ee, #10101ddd);
+  box-shadow: 0 20px 65px #00000018;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  border: 1px solid #a78bfa30;
+  border-radius: 12px;
+  background: #a78bfa12;
+  color: var(--accent);
+  font-size: 21px;
+}
+
+.account-badge {
+  padding: 7px 10px;
+  border: 1px solid #76e2b033;
+  border-radius: 30px;
+  background: #76e2b00d;
+  color: var(--success);
+  font-size: 10px;
+}
+
+.dashboard-card h2 {
+  margin: 25px 0 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.6px;
+}
+
+.card-description {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.profile-detail {
+  display: grid;
+  gap: 8px;
+  margin-top: 25px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ffffff0d;
+}
+
+.profile-detail:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.profile-detail > span {
+  color: #85859e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.profile-detail strong {
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.security-card {
+  background:
+    radial-gradient(ellipse at 100% 0%, #8b5cf61c, transparent 55%),
+    linear-gradient(145deg, #171727ee, #10101ddd);
+}
+
+.security-card > .welcome-label {
+  margin-top: 30px;
+}
+
+.security-card h2 {
+  margin-top: 13px;
+}
+
+.security-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 13px;
+  border: 1px solid #76e2b022;
+  border-radius: 9px;
+  background: #76e2b008;
+  color: var(--success);
+  font-size: 11px;
+}
+
+.dashboard-note {
+  min-height: 20px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 25px clamp(22px, 7vw, 100px);
+  border-top: 1px solid #ffffff0d;
+  color: #77778f;
+  font-size: 10px;
+}
+
+@media (max-width: 700px) {
+  .dashboard-main {
+    padding-top: 42px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dashboard-header {
+    min-height: 72px;
+  }
+}

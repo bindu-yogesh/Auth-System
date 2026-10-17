@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b14" />
+  <meta name="description" content="Securely access your UptoSkills account." />
+  <title>UptoSkills — Welcome back</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="brand-panel">
+      <a class="brand" href="/" aria-label="UptoSkills home">
+        <span class="brand-mark">U</span>
+        <span>UptoSkills<span class="brand-dot">.</span></span>
+      </a>
+
+      <div class="brand-content">
+        <span class="eyebrow"><span class="status-dot"></span> YOUR NEXT CHAPTER STARTS HERE</span>
+        <h1>Build skills.<br />Unlock <span>possibilities.</span></h1>
+        <p>A space to learn, grow, and take the next step in your journey.</p>
+
+        <div class="feature-list">
+          <div class="feature">
+            <span class="feature-icon">✦</span>
+            <div>
+              <strong>One account, your journey</strong>
+              <p>Access your account with confidence.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">↗</span>
+            <div>
+              <strong>Built for your next step</strong>
+              <p>A simple, secure place to get started.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="panel-footer">LEARN SOMETHING. BECOME SOMETHING.</p>
+    </section>
+
+    <section class="form-panel">
+      <div class="mobile-brand brand">
+        <span class="brand-mark">U</span>
+        <span>UptoSkills<span class="brand-dot">.</span></span>
+      </div>
+
+      <div class="auth-card">
+        <div class="card-heading">
+          <span class="eyebrow">YOUR ACCOUNT</span>
+          <h2 id="form-title">Welcome back<span class="brand-dot">.</span></h2>
+          <p id="form-subtitle">Enter your details to sign in to your account.</p>
+        </div>
+
+        <div class="tab-switch" role="tablist" aria-label="Authentication">
+          <button class="tab active" id="login-tab" type="button"
+            role="tab" aria-selected="true">Sign in</button>
+          <button class="tab" id="signup-tab" type="button"
+            role="tab" aria-selected="false">Create account</button>
+        </div>
+
+        <div id="status-message" class="status-message" role="status"
+          aria-live="polite" hidden></div>
+
+        <form id="auth-form" novalidate>
+          <div class="field" id="name-field" hidden>
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text"
+              placeholder="Your full name" autocomplete="name"
+              maxlength="100" />
+            <small class="field-error" id="name-error"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email"
+              placeholder="you@example.com" autocomplete="email"
+              maxlength="255" required />
+            <small class="field-error" id="email-error"></small>
+          </div>
+
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <button type="button" class="text-button"
+                id="toggle-password" aria-controls="password"
+                aria-pressed="false">Show</button>
+            </div>
+            <input id="password" name="password" type="password"
+              placeholder="Enter your password"
+              autocomplete="current-password" required />
+            <small class="field-error" id="password-error"></small>
+          </div>
+
+          <p class="password-hint" id="password-hint" hidden>
+            Use 8–72 characters.
+          </p>
+
+          <button class="submit-button" id="submit-button" type="submit">
+            <span id="submit-label">Sign in</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <p class="switch-prompt">
+          <span id="switch-copy">New to UptoSkills?</span>
+          <button type="button" class="text-button" id="switch-mode">
+            Create an account
+          </button>
+        </p>
+
+        <div class="security-note">
+          <span aria-hidden="true">♧</span>
+          Your account is protected with secure authentication.
+        </div>
+      </div>
+
+      <p class="form-footer">© 2026 UptoSkills · Keep growing.</p>
+    </section>
+  </main>
+</body>
+</html>
