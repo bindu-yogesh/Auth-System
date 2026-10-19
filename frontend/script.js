@@ -2,6 +2,8 @@
 const form = document.getElementById("auth-form");
 const nameField = document.getElementById("name-field");
 const nameInput = document.getElementById("name");
+const usernameField = document.getElementById("username-field");
+const usernameInput = document.getElementById("username");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const passwordHint = document.getElementById("password-hint");
@@ -33,12 +35,12 @@ function showStatus(message, type = "error") {
 }
 
 function clearFieldErrors() {
-  for (const id of ["name", "email", "password"]) {
+  for (const id of ["name", "username", "email", "password"]) {
     const input = document.getElementById(id);
     const error = document.getElementById(`${id}-error`);
 
-    input.removeAttribute("aria-invalid");
-    error.textContent = "";
+    if (input) input.removeAttribute("aria-invalid");
+    if (error) error.textContent = "";
   }
 }
 
@@ -46,8 +48,8 @@ function setFieldError(field, message) {
   const input = document.getElementById(field);
   const error = document.getElementById(`${field}-error`);
 
-  input.setAttribute("aria-invalid", "true");
-  error.textContent = message;
+  if (input) input.setAttribute("aria-invalid", "true");
+  if (error) error.textContent = message;
 }
 
 function setMode(nextMode) {
@@ -60,8 +62,11 @@ function setMode(nextMode) {
 
   nameField.hidden = !isSignup;
   nameInput.required = isSignup;
-  passwordHint.hidden = !isSignup;
 
+  usernameField.hidden = !isSignup;
+  usernameInput.required = isSignup;
+
+  passwordHint.hidden = !isSignup;
   passwordInput.autocomplete = isSignup
     ? "new-password"
     : "current-password";
@@ -106,12 +111,18 @@ togglePasswordButton.addEventListener("click", () => {
   togglePasswordButton.setAttribute("aria-pressed", String(!showing));
 });
 
-for (const input of [nameInput, emailInput, passwordInput]) {
+for (const input of [
+  nameInput,
+  usernameInput,
+  emailInput,
+  passwordInput,
+]) {
   input.addEventListener("input", () => {
     input.removeAttribute("aria-invalid");
 
     const error = document.getElementById(`${input.id}-error`);
-    error.textContent = "";
+    if (error) error.textContent = "";
+
     clearStatus();
   });
 }
@@ -120,12 +131,25 @@ function validateForm() {
   clearFieldErrors();
 
   const name = nameInput.value.trim();
+  const username = usernameInput.value.trim();
   const email = emailInput.value.trim();
   const password = passwordInput.value;
+
   let valid = true;
 
   if (mode === "signup" && (!name || name.length > 100)) {
     setFieldError("name", "Enter a name between 1 and 100 characters.");
+    valid = false;
+  }
+
+  if (
+    mode === "signup" &&
+    !/^[a-zA-Z0-9_]{3,30}$/.test(username)
+  ) {
+    setFieldError(
+      "username",
+      "Username must be 3–30 characters using letters, numbers, or underscores."
+    );
     valid = false;
   }
 
@@ -157,17 +181,14 @@ function validateForm() {
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  if (isSubmitting || !validateForm()) {
-    return;
-  }
+  if (isSubmitting || !validateForm()) return;
 
   isSubmitting = true;
   clearStatus();
 
   submitButton.disabled = true;
-  submitLabel.textContent = mode === "signup"
-    ? "Creating account..."
-    : "Signing in...";
+  submitLabel.textContent =
+    mode === "signup" ? "Creating account..." : "Signing in...";
 
   const payload = {
     email: emailInput.value.trim(),
@@ -176,6 +197,7 @@ form.addEventListener("submit", async (event) => {
 
   if (mode === "signup") {
     payload.name = nameInput.value.trim();
+    payload.username = usernameInput.value.trim().toLowerCase();
   }
 
   try {
@@ -209,9 +231,8 @@ form.addEventListener("submit", async (event) => {
   } finally {
     isSubmitting = false;
     submitButton.disabled = false;
-    submitLabel.textContent = mode === "signup"
-      ? "Create account"
-      : "Sign in";
+    submitLabel.textContent =
+      mode === "signup" ? "Create account" : "Sign in";
   }
 });
 

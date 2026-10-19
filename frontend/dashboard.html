@@ -17,15 +17,19 @@
       <span>UptoSkills<span class="brand-dot">.</span></span>
     </a>
 
-    <button class="logout-button" id="logout-button" type="button">
-      Log out <span aria-hidden="true">↗</span>
-    </button>
+    <div class="header-actions">
+      <button class="edit-profile-button" id="open-profile-button" type="button">
+        ✎ Edit Profile
+      </button>
+      <button class="logout-button" id="logout-button" type="button">
+        Log out <span aria-hidden="true">↗</span>
+      </button>
+    </div>
   </header>
 
   <main class="dashboard-main">
     <div class="dashboard-eyebrow">
-      <span class="status-dot"></span>
-      ACCOUNT OVERVIEW
+      <span class="status-dot"></span> ACCOUNT OVERVIEW
     </div>
 
     <section class="welcome-section">
@@ -52,6 +56,11 @@
         </div>
 
         <div class="profile-detail">
+          <span>USERNAME</span>
+          <strong id="profile-username">Loading...</strong>
+        </div>
+
+        <div class="profile-detail">
           <span>EMAIL ADDRESS</span>
           <strong id="profile-email">Loading...</strong>
         </div>
@@ -67,13 +76,16 @@
         <p class="welcome-label">YOUR SECURITY</p>
         <h2>You're in control.</h2>
         <p class="card-description">
-          Your account is protected by server-side authentication and secure password hashing.
+          Manage your account details and password whenever you need to.
         </p>
-
         <div class="security-status">
           <span class="status-dot"></span>
           Authenticated session
         </div>
+        <button class="settings-button security-edit-button"
+                id="security-edit-button" type="button">
+          Manage account settings
+        </button>
       </article>
     </section>
 
@@ -84,5 +96,110 @@
     <span>© 2026 UptoSkills</span>
     <span>LEARN SOMETHING. BECOME SOMETHING.</span>
   </footer>
+
+  <!-- Account settings modal -->
+  <div class="modal-overlay" id="profile-modal" hidden>
+    <section class="profile-modal" role="dialog" aria-modal="true"
+             aria-labelledby="profile-modal-title">
+
+      <button class="modal-close" id="close-profile-button"
+              type="button" aria-label="Close">×</button>
+
+      <div class="modal-icon" aria-hidden="true">✎</div>
+      <p class="welcome-label">ACCOUNT SETTINGS</p>
+      <h2 id="profile-modal-title">Manage your account</h2>
+
+      <div class="settings-menu" id="settings-menu">
+        <button class="settings-option" id="show-profile-option" type="button">
+          <span class="settings-option-icon">◉</span>
+          <span class="settings-option-copy">
+            <strong>Edit Profile</strong>
+            <small>Change your username or email address.</small>
+          </span>
+          <span class="settings-arrow">›</span>
+        </button>
+
+        <button class="settings-option" id="show-password-option" type="button">
+          <span class="settings-option-icon">⌑</span>
+          <span class="settings-option-copy">
+            <strong>Change Password</strong>
+            <small>Update your account password securely.</small>
+          </span>
+          <span class="settings-arrow">›</span>
+        </button>
+      </div>
+
+      <!-- Edit profile section -->
+      <section id="profile-edit-section" hidden>
+        <button class="back-settings-button" id="back-from-profile" type="button">
+          ← Back to settings
+        </button>
+
+        <h3>Edit Profile</h3>
+        <p class="card-description">Update your username and email address.</p>
+
+        <form id="profile-form" class="account-form">
+          <div class="form-field">
+            <label for="edit-username">Username</label>
+            <input id="edit-username" name="username" type="text"
+                   minlength="3" maxlength="30"
+                   pattern="[A-Za-z0-9_]{3,30}"
+                   autocomplete="username" required />
+            <small>3–30 characters: letters, numbers, and underscores.</small>
+          </div>
+
+          <div class="form-field">
+            <label for="edit-email">Email address</label>
+            <input id="edit-email" name="email" type="email"
+                   maxlength="254" autocomplete="email" required />
+          </div>
+
+          <button class="settings-button" id="save-profile-button" type="submit">
+            Save Changes
+          </button>
+        </form>
+      </section>
+
+      <!-- Change password section -->
+      <section id="password-edit-section" hidden>
+        <button class="back-settings-button" id="back-from-password" type="button">
+          ← Back to settings
+        </button>
+
+        <h3>Change Password</h3>
+        <p class="card-description">Choose a strong password to protect your account.</p>
+
+        <form id="password-form" class="account-form">
+          <div class="form-field">
+            <label for="current-password">Current password</label>
+            <input id="current-password" name="currentPassword"
+                   type="password" autocomplete="current-password" required />
+          </div>
+
+          <div class="form-field">
+            <label for="new-password">New password</label>
+            <input id="new-password" name="newPassword"
+                   type="password" minlength="8"
+                   autocomplete="new-password" required />
+            <small>Use at least 8 characters.</small>
+          </div>
+
+          <div class="form-field">
+            <label for="confirm-password">Confirm new password</label>
+            <input id="confirm-password" name="confirmPassword"
+                   type="password" minlength="8"
+                   autocomplete="new-password" required />
+          </div>
+
+          <button class="settings-button" id="change-password-button" type="submit">
+            Update Password
+          </button>
+        </form>
+      </section>
+    </section>
+  </div>
+
+  <div class="toast-message" id="success-toast"
+       role="status" aria-live="polite"></div>
 </body>
 </html>

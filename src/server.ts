@@ -7,7 +7,6 @@ import { pool } from "./db/pool";
 import authRouter from "./routes/auth";
 
 dotenv.config();
-
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 

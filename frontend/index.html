@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,6 +74,18 @@
               placeholder="Your full name" autocomplete="name"
               maxlength="100" />
             <small class="field-error" id="name-error"></small>
+          </div>
+
+          <div class="field" id="username-field" hidden>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text"
+              placeholder="e.g. bindu_yogesh"
+              autocomplete="username"
+              minlength="3" maxlength="30"
+              pattern="[A-Za-z0-9_]{3,30}"
+              aria-describedby="username-hint username-error" />
+            <small id="username-hint">3–30 characters: letters, numbers, and underscores only.</small>
+            <small class="field-error" id="username-error"></small>
           </div>
 
           <div class="field">
